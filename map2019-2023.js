@@ -53,11 +53,11 @@ function calculateLST(year) {
     maxPixels: 1e9
   }).values().get(0));
   
-  var fv = ((ndvi.subtract(ndviMin)).divide(ndviMax.subtract(ndviMin)))
+  var pv = ((ndvi.subtract(ndviMin)).divide(ndviMax.subtract(ndviMin)))
             .pow(ee.Number(2))
-            .rename('FV');
+            .rename('PV');
   
-  var em = fv.multiply(ee.Number(0.004)).add(ee.Number(0.986)).rename('EM');
+  var em = pv.multiply(ee.Number(0.004)).add(ee.Number(0.986)).rename('EM');
   
   var thermal = image.select('ST_B10').rename('thermal');
   

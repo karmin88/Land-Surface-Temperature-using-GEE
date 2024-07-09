@@ -1,5 +1,5 @@
 // Define the ROI (Region of Interest)
-var roi = ee.FeatureCollection("FAO/GAUL/2015/level1")
+var roi = ee.FeatureCollection('FAO/GAUL/2015/level1')
             .filter(ee.Filter.eq('ADM1_NAME', 'Perak'));
 
 // Add the ROI to the Map and Set the Map View
@@ -84,8 +84,8 @@ function calculateLST(year) {
   Map.addLayer(ndvi, ndviPalette, 'NDVI Perak - ' + year);
   
   Map.addLayer(lst, {
-    min: 18.47,
-    max: 42.86,
+    min: 15,
+    max: 45,
     palette: [
       '040274', '040281', '0502a3', '0502b8', '0502ce', '0502e6',
       '0602ff', '235cb1', '307ef3', '269db1', '30c8e2', '32d3ef',
@@ -182,6 +182,3 @@ var mapTitle2 = ui.Label({
 mapTitle.add(mapTitle2);
 
 Map.add(mapTitle);
-
-
-
